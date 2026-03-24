@@ -1,0 +1,56 @@
+﻿<Window x:Class="Assignment4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment4"
+        mc:Ignorable="d"
+        Title="Deck Builder" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="797*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- label region-->
+        <Label Content="Card" HorizontalAlignment="Left" Margin="27,22,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Suit" HorizontalAlignment="Left" Margin="27,67,0,0" VerticalAlignment="Top" Height="35" Width="53" Grid.Column="1"/>
+        <Label Content="Rank" HorizontalAlignment="Left" Margin="27,135,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Cards Dealt" HorizontalAlignment="Left" Margin="123,279,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Deck" HorizontalAlignment="Left" Margin="454,17,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Draw" HorizontalAlignment="Left" Margin="27,230,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        
+        <!-- Text region-->
+        <TextBox ToolTip="Please enter suit of card" HorizontalAlignment="Left" TabIndex="0" Margin="74,70,0,0" TextWrapping="Wrap" x:Name="txtSuit"  VerticalAlignment="Top" Width="120" Height="36" Grid.Column="1"/>
+        <TextBox ToolTip="Please enter rank of card" HorizontalAlignment="Left" TabIndex="1" Margin="74,136,0,0" TextWrapping="Wrap" x:Name="txtRank"  VerticalAlignment="Top" Width="120" Height="36" Grid.Column="1"/>
+        <TextBox ToolTip="Please enter number of cards you want to draw" HorizontalAlignment="Left" TabIndex="2" Margin="74,230,0,0" TextWrapping="Wrap" x:Name="txtDeal"  VerticalAlignment="Top" Width="120" Height="35" Grid.Column="1"/>
+        
+        <!-- Button region-->
+        <Button ToolTip="It display deck of cards" Click="ViewDeck_Click" Content="_View Deck" TabIndex="5" HorizontalAlignment="Left" x:Name="btnViewCheck" Margin="674,70,0,0" VerticalAlignment="Top" Height="47" Width="100" Grid.Column="1"/>
+        <Button ToolTip="It shuffles deck of cards" Click="ShuffleCards_Click" Content="_Shuffle" IsCancel="True" TabIndex="6" HorizontalAlignment="Left" x:Name="btnShuffle" Margin="674,154,0,0" VerticalAlignment="Top" Height="47" Width="100" Grid.Column="1"/>
+        <Button ToolTip="It reset the program" Click="ResetButton_Click" Content="_Reset" HorizontalAlignment="Left" TabIndex="7"  Margin="674,235,0,0" x:Name="btnReset" VerticalAlignment="Top" Height="47" Width="100" Grid.Column="1"/>
+        <Button ToolTip="It closes the program" Click="ExitButton_Click" Content="_Exit" HorizontalAlignment="Left" TabIndex="8" Margin="674,318,0,0" x:Name="btnExit" VerticalAlignment="Top" Height="47" Width="100" Grid.Column="1"/>
+        <Button ToolTip="It adds custom cards to deck of cards" Click="AddCard_Click" Content="_Add Custom" IsDefault="True"  TabIndex="3" HorizontalAlignment="Left" Margin="218,108,0,0" x:Name="btnAdd" VerticalAlignment="Top" Height="40" Width="100" Grid.Column="1"/>
+        <Button ToolTip="It draws cards from deck of cards" Click="DealCard_Click" Content="_Deal" TabIndex="4" HorizontalAlignment="Left" Margin="218,223,0,0" x:Name="btnDeal" VerticalAlignment="Top" Height="40" Width="100" Grid.Column="1"/>
+        
+        <!-- List view region-->
+        <ListView ToolTip="It shows available deck of cards" Grid.Column="1" x:Name="lvDeck" TabIndex="9" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="344,50,141,10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView ToolTip="It shows the cards user draws" x:Name="lvCardsDealt"  Grid.Column="1" TabIndex="10" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,310,465,13">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>
